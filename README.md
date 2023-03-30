@@ -1,23 +1,23 @@
-# TÍTULO DO PROJETO
+Mano Tensão
 
-`CURSO`
+Análise e Desenvolvimento de Sistemas
 
-`DISCIPLINA`
+Projeto: Desenvolvimento de Aplicação Web Front-End
 
-`SEMESTRE`
+1º Semestre/2023
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Um aplicativo que visa conectar prestadores de serviços de manutenção residencial e clientes pessoa física que possuem algum tipo de demanda desses serviços.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+Cassio Borges do Carmo
+David Xavier Soares de Souza
+Thiago Souza Dias
+Wellington Ubiratan da Silva Junior
 
 ## Orientador
 
-* Nome completo do professor 1
+Simone Alves Nogueira
 
 ## Instruções de utilização
 
