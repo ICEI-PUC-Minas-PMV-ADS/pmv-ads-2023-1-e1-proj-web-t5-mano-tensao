@@ -9,11 +9,11 @@
   <tr>
    <td rowspan="2" >
 
-    <img src="images/image1.png" width="" alt="alt_text" title="image_tooltip">
+   <img src="images/image2.png" width="" alt="Evens Wilguens" title="image_tooltip">
 
    </td>
    <td colspan="2" ><p style="text-align: right">
-<strong>Evens Wilguens</strong></p>
+<strong>Evens Wilguens (Prestador de serviços)</strong></p>
 
    </td>
   </tr>
@@ -71,11 +71,11 @@
   <tr>
    <td rowspan="2" >
 
-<img src="images/image2.png" width="" alt="alt_text" title="image_tooltip">
+<img src="images/image2.png" width="" alt="Rafael Carmo" title="image_tooltip">
 
    </td>
    <td colspan="2" ><p style="text-align: right">
-<strong>Rafael Carmo</strong></p>
+<strong>Rafael Carmo (Contratante de serviços)</strong></p>
 
    </td>
   </tr>
@@ -133,7 +133,7 @@
   <tr>
    <td rowspan="2" >
 
-<img src="images/image3.jpg" width="" alt="alt_text" title="image_tooltip">
+<img src="images/image3.jpg" width="" alt="Cleber da Silveira" title="image_tooltip">
 
    </td>
    <td colspan="2" ><p style="text-align: right">
@@ -201,7 +201,7 @@
    <td rowspan="2" >
 
 
-<img src="images/image4.jpg" width="" alt="alt_text" title="image_tooltip">
+<img src="images/image4.jpg" width="" alt="Cláudia Abraão" title="image_tooltip">
 
    </td>
    <td colspan="2" ><p style="text-align: right">
@@ -273,11 +273,11 @@
 
 
 
-<img src="images/image5.png" width="" alt="alt_text" title="image_tooltip">
+<img src="images/image5.png" width="" alt="Roberto Santos" title="image_tooltip">
 
    </td>
    <td colspan="2" ><p style="text-align: right">
-<strong>Roberto Santos</strong></p>
+<strong>Roberto Santos (Contratante de serviços)</strong></p>
 
    </td>
   </tr>
@@ -333,11 +333,11 @@
   <tr>
    <td rowspan="2" >
 
-<img src="images/image6.png" width="" alt="alt_text" title="image_tooltip">
+<img src="images/image6.png" width="" alt="José Oliveira" title="image_tooltip">
 
    </td>
    <td colspan="2" ><p style="text-align: right">
-<strong>José Oliveira(Prestador de Serviço)</strong></p>
+<strong>José Oliveira (Prestador de Serviço)</strong></p>
 
    </td>
   </tr>
