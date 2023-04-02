@@ -1,23 +1,23 @@
-Mano Tensão
+# Mano Tensão
 
-Análise e Desenvolvimento de Sistemas
+## Análise e Desenvolvimento de Sistemas
 
-Projeto: Desenvolvimento de Aplicação Web Front-End
+### Projeto: Desenvolvimento de Aplicação Web Front-End
 
-1º Semestre/2023
+### 1º Semestre/2023
 
 Um aplicativo que visa conectar prestadores de serviços de manutenção residencial e clientes pessoa física que possuem algum tipo de demanda desses serviços.
 
 ## Integrantes
 
-Cassio Borges do Carmo
-David Xavier Soares de Souza
-Thiago Souza Dias
+Cassio Borges do Carmo<br>
+David Xavier Soares de Souza<br>
+Thiago Souza Dias<br>
 Wellington Ubiratan da Silva Junior
 
-## Orientador
+## Professor Orientador
 
-Simone Alves Nogueira
+<a href="http://lattes.cnpq.br/8405271153505880" target="_blank">Me. Simone Alves Nogueira</a>
 
 ## Instruções de utilização
 
@@ -41,7 +41,7 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 # Hospedagem
 
-* Insira o endereço eletrônico público de acesso ao conteúdo publicado. 
+
 
 # Armazenamento do Código-Fonte
 
