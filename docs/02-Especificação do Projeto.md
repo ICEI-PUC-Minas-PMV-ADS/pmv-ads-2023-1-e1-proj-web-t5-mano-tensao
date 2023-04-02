@@ -2,90 +2,747 @@
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
-
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+<table>
+  <tr>
+   <td rowspan="2" >
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+    <img src="images/image1.png" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+   <td colspan="2" ><p style="text-align: right">
+<strong>Evens Wilguens</strong></p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Idade</strong>: 33
+<p>
+<strong>Ocupação</strong>: Gerente em loja de artigos diversos. 
+   </td>
+   <td>Aplicativos:
+<p>
+
+    Facebook
+<p>
+
+    Whatsapp
+<p>
+
+    Intagram
+   </td>
+  </tr>
+  <tr>
+   <td>Motivações
+<ul>
+
+<li>Prover para a família
+
+<li>Enviar dinheiro para pais
+</li>
+</ul>
+   </td>
+   <td>Frustrações
+<ul>
+
+<li>Dificuldade com idioma
+
+<li>Baixa escolaridade
+</li>
+</ul>
+   </td>
+   <td>Hobbies, História
+<ul>
+
+<li>Futebol
+
+<li>Livros de mistério
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+   <td rowspan="2" >
+
+<img src="images/image2.png" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+   <td colspan="2" ><p style="text-align: right">
+<strong>Rafael Carmo</strong></p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Idade</strong>: 28
+<p>
+<strong>Ocupação</strong>: Desenvolvedor de aplicativos em multinacional.
+   </td>
+   <td>Aplicativos:
+<ul>
+
+<li>Instagram
+
+<li>Whatsapp
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>Motivações
+<ul>
+
+<li>Fazer parte de uma grande empresa
+
+<li>Saber que faço alguma diferença.
+</li>
+</ul>
+   </td>
+   <td>Frustrações
+<ul>
+
+<li>Mercado de TI no Brasil
+
+<li>Distância da família
+</li>
+</ul>
+   </td>
+   <td>Hobbies, História
+<ul>
+
+<li>Mangá / Animes
+
+<li>Vídeo Games
+
+<li>Viagens
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+   <td rowspan="2" >
+
+<img src="images/image3.jpg" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+   <td colspan="2" ><p style="text-align: right">
+<strong>Cleber da Silveira (Contratante de serviços)</strong></p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Idade</strong>: 29
+<p>
+<strong>Ocupação</strong>: Publicitário, trabalha como freelancer para empresas de médio porte e normalmente faz seu trabalho em coworkings. 
+   </td>
+   <td>Aplicativos:
+<p>
+
+    Instagram
+<p>
+
+    Pinterest
+<p>
+
+    WhatsApp
+<p>
+
+    TikTok
+   </td>
+  </tr>
+  <tr>
+   <td>Motivações
+<ul>
+
+<li>Ter sempre seu trabalho valorizado
+
+<li>Manter os espaços que está arrumados e bonitos
+</li>
+</ul>
+   </td>
+   <td>Frustrações
+<ul>
+
+<li>Dificuldade de movimentar na cidade
+
+<li>Empresas que não oferecem o justo pelo trabalho dele.
+</li>
+</ul>
+   </td>
+   <td>Hobbies, História
+<ul>
+
+<li>Leitura
+
+<li>Jardinagem
+
+<li>Cultivo de orgânicos
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+   <td rowspan="2" >
+
+
+<img src="images/image4.jpg" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+   <td colspan="2" ><p style="text-align: right">
+<strong>Cláudia Abraão (Prestadora de serviços)</strong></p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Idade</strong>: 36
+<p>
+<strong>Ocupação</strong>: Eletricista, Cláudia fez o SENAI logo após concluir seu ensino médio. Ela é mãe solteira de duas crianças. Além da habilidades como eletricista é também um “Marido de aluguel”
+   </td>
+   <td>Aplicativos:
+<p>
+
+    Instagram
+<p>
+
+    Telegram
+<p>
+
+    WhatsApp
+   </td>
+  </tr>
+  <tr>
+   <td>Motivações
+<ul>
+
+<li>Criar seus filhos
+
+<li>Abrir uma empresa no setor de reparos residenciais.
+
+<li>Conciliar trabalho e a criação dos filhos.
+</li>
+</ul>
+   </td>
+   <td>Frustrações
+<ul>
+
+<li>Sempre acham que por ser mulher é mal vista no trabalho.
+
+<li>Ter que trabalhar longe da casa dela
+
+<li>O mau pagamento pelos serviços que oferta
+
+<li>O trânsito caótico da capital 
+</li>
+</ul>
+   </td>
+   <td>Hobbies, História
+<ul>
+
+<li>Churrasco
+
+<li>Pintura em aquarela
+
+<li>Viajar para o interior, por ter sido criada na roça.
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+   <td rowspan="2" >
+
+
+
+<img src="images/image5.png" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+   <td colspan="2" ><p style="text-align: right">
+<strong>Roberto Santos</strong></p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Idade</strong>: 36
+<p>
+<strong>Ocupação</strong>: psicólogo, trabalha no RH de uma grande empresa.
+   </td>
+   <td>Aplicativos:
+<ul>
+
+<li>Instagram
+
+<li>Facebook
+
+<li>Whatsapp
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>Motivações
+<ul>
+
+<li>Acredita no desenvolvimento individual das pessoas
+</li>
+</ul>
+   </td>
+   <td>Frustrações
+<ul>
+
+<li>Não poder ajudar pessoas que precisam trabalhar mas não se encaixam no perfil da vaga
+
+<li>Limitações do ambiente da empresa
+</li>
+</ul>
+   </td>
+   <td>Hobbies, História
+<ul>
+
+<li>Tocar violão
+
+<li>Bicicleta
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+   <td rowspan="2" >
+
+<img src="images/image6.png" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+   <td colspan="2" ><p style="text-align: right">
+<strong>José Oliveira(Prestador de Serviço)</strong></p>
+
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Idade</strong>: 49
+<p>
+<strong>Ocupação</strong>: Autônomo, trabalha com conserto de máquina de lavar há quase trinta anos.
+   </td>
+   <td>Aplicativos:
+<ul>
+
+<li>whatsapp
+
+<li>Facebook
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>Motivações
+<ul>
+
+<li>Quer aprender mais para ser ainda melhor no seu trabalho.
+
+<li>Satisfação pessoal em ajudar as pessoas.
+
+<li>Expandir seu negócio para ganhar mais dinheiro.
+</li>
+</ul>
+   </td>
+   <td>Frustrações
+<ul>
+
+<li>Concorrência no mercado, vem enfrentando dificuldades para encontrar novos clientes
+
+<li>Se sente desvalorizado.
+
+<li>Enfrentando desafios financeiros.
+</li>
+</ul>
+   </td>
+   <td>Hobbies, História
+<ul>
+
+<li>Mecânica 
+
+<li>Pesca
+
+<li>Cozinha
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+
+Obs: fotos meramente ilustrativas
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+<table>
+  <tr>
+   <td><strong>Eu como …  [PERSONA]</strong>
+   </td>
+   <td><strong>… quero/desejo …  \
+[O QUE]</strong>
+   </td>
+   <td><strong>… para ....</strong>
+<p>
+<strong>[POR QUE]</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Cleber da Silveira
+   </td>
+   <td>Ter alguém que resolva os problemas de manutenção e que não gere muita sujeira.
+   </td>
+   <td>Eu possa ter minha casa e meu jardim sempre arrumado e limpo
+   </td>
+  </tr>
+  <tr>
+   <td>Cleber da Silveira
+   </td>
+   <td>Alguém que não me explore por eu não saber fazer.
+   </td>
+   <td>Muitos maus profissionais, usam do meu desconhecimento para me extorquir.
+   </td>
+  </tr>
+  <tr>
+   <td>Cláudia Abraão (Prestadora de serviços)
+   </td>
+   <td>Trabalho próximo ao meu bairro.
+   </td>
+   <td>Sempre estar próxima dos meus filhos.
+   </td>
+  </tr>
+  <tr>
+   <td>Cláudia Abraão (Prestadora de serviços)
+   </td>
+   <td>Poder mostrar minhas capacidades de trabalho e a satisfação de meus cliente.
+   </td>
+   <td>Para conseguir vencer o preconceito que tenho com minha profissão.
+   </td>
+  </tr>
+  <tr>
+   <td>Evens Wilguens
+   </td>
+   <td>Segurança para minha família receber alguém para manutenções que não posso fazer devido ao trabalho
+   </td>
+   <td>Eu possa trabalhar sem me preocupar com a segurança deles
+   </td>
+  </tr>
+  <tr>
+   <td>Evens Wilguens
+   </td>
+   <td>Conseguir contratar um serviço acessível mas de qualidade
+   </td>
+   <td>Eu possa manter minha moradia sem precisar sacrificar o dinheiro que junto.
+   </td>
+  </tr>
+  <tr>
+   <td>Rafael Carmo
+   </td>
+   <td>Não haja dor de cabeça para tarefas como instalar um ar em meu apartamento.
+   </td>
+   <td>Sobre mais tempo quando chego em casa para minhas atividades pessoais.
+   </td>
+  </tr>
+  <tr>
+   <td>Rafael Carmo
+   </td>
+   <td>Serviços executados não acarretem em ter que chamar o mesmo profissional posteriormente para consertar o mal feito.
+   </td>
+   <td>Esse seja uma dor de cabeça inexistente em minha vida.
+   </td>
+  </tr>
+  <tr>
+   <td>Carlos Gomes
+   </td>
+   <td>compartilhar notícias nas redes sociais em que faço parte
+   </td>
+   <td>poder discutir com os amigos e colegas de trabalhos sobre temas de interesse
+   </td>
+  </tr>
+  <tr>
+   <td>Amanda Alves
+   </td>
+   <td>poder realizar uma pesquisa sobre notícias acerca de um tema específico
+   </td>
+   <td>localizar tópicos específicos e conseguir maior objetividade em algumas leituras
+   </td>
+  </tr>
+  <tr>
+   <td>Carlos Gomes
+   </td>
+   <td>ler notícias tanto no desktop quanto no celular
+   </td>
+   <td>ocupar o tempo quando estou esperando algo (ex: filas de supermercado)
+   </td>
+  </tr>
+  <tr>
+   <td>Amanda Alves
+   </td>
+   <td>quero saber a data e a fonte das notícias lidas
+   </td>
+   <td>confiar no conteúdo passado e na atualidade das notícias que recebo
+   </td>
+  </tr>
+  <tr>
+   <td>Roberto Santos
+   </td>
+   <td>Encontrar prestadores de serviço quando precisar
+   </td>
+   <td>Não tem conhecimento de manutenções em geral
+   </td>
+  </tr>
+  <tr>
+   <td>Roberto Santos
+   </td>
+   <td>Saber as características do profissional antes de contratar
+   </td>
+   <td>Saber quem está indo até sua casa. Ter segurança
+   </td>
+  </tr>
+  <tr>
+   <td>Roberto Santos
+   </td>
+   <td>Um serviço prestado com qualidade e preço justo
+   </td>
+   <td>Ter pouco tempo disponível para pesquisar
+   </td>
+  </tr>
+  <tr>
+   <td>José Oliveira
+   </td>
+   <td>Divulgar seu serviço de forma eficiente
+   </td>
+   <td>Apesar de já possuir uma rede de clientes grande, ainda possui tempo disponível para novos clientes
+   </td>
+  </tr>
+  <tr>
+   <td>José Oliveira
+   </td>
+   <td>Saber sobre a pessoa que está negociando
+   </td>
+   <td>Reduzir as possibilidades de não receber pelo serviço ou passar pelo aborrecimento de ficar cobrando
+   </td>
+  </tr>
+</table>
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+O escopo funcional do projeto é definido por meio dos requisitos funcionais que descrevem as possibilidades interação dos usuários, bem como os requisitos não funcionais que descrevem os aspectos que o sistema deverá apresentar de maneira geral. Estes requisitos são apresentados a seguir.
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+
+
+A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade em que os mesmos devem ser entregues.
+
+
+<table>
+  <tr>
+   <td><strong>ID</strong>
+   </td>
+   <td><strong>Descrição</strong>
+   </td>
+   <td><strong>Prioridade</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>RF-01
+   </td>
+   <td>O site deve apresentar um formulário para pesquisa de serviços. 
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RF-02
+   </td>
+   <td>Um sistema de comentários que permita que os usuários e prestador de serviço falem da experiência do serviço
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RF-03
+   </td>
+   <td>O site deve apresentar um menu com as categorias de serviços para um fácil navegação. 
+   </td>
+   <td>Média
+   </td>
+  </tr>
+  <tr>
+   <td>RF-04
+   </td>
+   <td>O site deve apresentar um chat para contratante e prestador alinharem os detalhes do serviço.
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RF-05
+   </td>
+   <td>O site deve oferecer uma sessão de avaliações, no qual o contratante e o prestador possam avaliar uns aos outros.
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RF-06
+   </td>
+   <td>O formulário de pesquisa deve oferecer uma funcionalidade de filtro para permitir ao usuário localizar prestadores de serviço com base em critérios específicos, como localização, tipo de serviço e avaliações de outros usuários.
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RF-067
+   </td>
+   <td>O site deve permitir que os usuários busquem prestadores de serviço por meio da ferramenta de busca do site.
+   </td>
+   <td>Média
+   </td>
+  </tr>
+  <tr>
+   <td>RF-08
+   </td>
+   <td>O site deve permitir o suporte ao cliente eficiente, incluindo uma seção de perguntas frequentes. 
+   </td>
+   <td>Baixa
+   </td>
+  </tr>
+  <tr>
+   <td>RF-09
+   </td>
+   <td>Em sua página principal deve mostrar como o prestador de serviço e contratante podem se cadastrar, explicando as diferenças dos perfis.
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+</table>
 
 
 ### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender.
 
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+
+<table>
+  <tr>
+   <td><strong>ID</strong>
+   </td>
+   <td><strong>Descrição</strong>
+   </td>
+   <td><strong>Prioridade</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>RNF-01
+   </td>
+   <td>O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku); 
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RNF-02
+   </td>
+   <td>O site deverá ser responsivo permitindo a visualização em diversos dispositivos móveis (celular e tablet)
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RNF-04
+   </td>
+   <td>O site deve rodar normalmente em sistemas Windows, MacOS e Linux
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+  <tr>
+   <td>RNF-05
+   </td>
+   <td>O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge)
+   </td>
+   <td>Alta
+   </td>
+  </tr>
+</table>
+
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
-
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
 
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+
+<table>
+  <tr>
+   <td><strong>ID</strong>
+   </td>
+   <td><strong>Descrição</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>RE-01
+   </td>
+   <td>O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 25/06/2023.
+   </td>
+  </tr>
+  <tr>
+   <td>RE-02
+   </td>
+   <td>O aplicativo deve se restringir às tecnologias básicas da Web no Frontend
+   </td>
+  </tr>
+  <tr>
+   <td>RE-03
+   </td>
+   <td>O projeto não usará banco de dados.
+   </td>
+  </tr>
+  <tr>
+   <td>RE-04
+   </td>
+   <td>A equipe não pode subcontratar o desenvolvimento do trabalho.
+   </td>
+  </tr>
+  <tr>
+   <td>RE-05
+   </td>
+   <td>O projeto abarcará apenas a  RMBH  inicialmente.
+   </td>
+  </tr>
+  <tr>
+   <td>RE-06
+   </td>
+   <td>Desenvolvimento a ser feito utilizando HTML, CSS, Javascript
+   </td>
+  </tr>
+</table>
