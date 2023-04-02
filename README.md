@@ -10,6 +10,7 @@ Um aplicativo que visa conectar prestadores de serviços de manutenção residen
 
 ## Integrantes
 
+André Luiz Souza Silva<br>
 Cassio Borges do Carmo<br>
 David Xavier Soares de Souza<br>
 Thiago Souza Dias<br>
