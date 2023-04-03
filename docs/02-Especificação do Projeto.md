@@ -619,7 +619,7 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
    </td>
   </tr>
   <tr>
-   <td>RF-067
+   <td>RF-07
    </td>
    <td>O site deve permitir que os usuários busquem prestadores de serviço por meio da ferramenta de busca do site.
    </td>
