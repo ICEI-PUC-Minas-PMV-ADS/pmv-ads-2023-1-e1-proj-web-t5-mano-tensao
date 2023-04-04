@@ -28,7 +28,7 @@ A configuração inicial separa o repositório em documentação, apresentação
 
 ### Divisão de Papéis
 
-**CRUM Master (SM):** Cassio Borges do Carmo<br>
+**SCRUM Master (SM):** Cassio Borges do Carmo<br>
 **Product Owner (PO):** Thiago Souza Dias<br>
 **Líder técnico (LT):** Cassio Borges do Carmo e Thiago Souza Dias*<br>
 **Desenvolvedores:**<br>
