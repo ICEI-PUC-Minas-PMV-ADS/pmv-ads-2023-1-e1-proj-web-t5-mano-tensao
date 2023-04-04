@@ -63,8 +63,6 @@ Cerimônias adotadas com breve descrição:
 As ferramentas empregadas no projeto são:
 
 - Editor de código: VSCode.
-- Ferramentas de comunicação
-* WhatsApp
-* Microsoft Teams 
+- Ferramentas de comunicação: WhatsApp, Microsoft Teams. 
 - Ferramentas de desenho de tela: Sigma.
 - Ferramenta de gerenciamento de processo: Jira.
