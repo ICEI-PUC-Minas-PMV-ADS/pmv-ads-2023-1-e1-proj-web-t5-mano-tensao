@@ -8,14 +8,8 @@ Sendo o projeto composto de dois tipos de usuário distintos - prestador de serv
 
 ![Exemplo de UserFlow](img/perfil_prestador.jpg)
 
-## Wireframes Prestador de Serviços
-
 
 ## Fluxo de Usuário Referente ao Contratante
 
 ![Exemplo de UserFlow](img/perfil_contratante.jpg)
-
-
-## Wireframes Contratante
-
 
