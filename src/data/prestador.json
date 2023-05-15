@@ -1,0 +1,53 @@
+{
+    "contratos" : [
+        {
+            "id" : "0000312",
+            "titulo": "Pintura em imóvel",
+            "contratante": "Roberval",
+            "contrato": "",
+            "imagem": "https://placehold.co/150x150"
+        },
+        {
+            "id" : "0000367",
+            "titulo": "Conserto em calha",
+            "contratante": "Priscila",
+            "contrato": "",
+            "imagem": "https://placehold.co/150x150"
+        },
+        {
+            "id" : "0000456",
+            "titulo": "Troca de telhado",
+            "contratante": "Gomes",
+            "contrato": "",
+            "imagem": "https://placehold.co/150x150"
+        },
+        {
+            "id" : "0000517",
+            "titulo": "Pintura interna",
+            "contratante": "Capaixão",
+            "contrato": "",
+            "imagem": "https://placehold.co/150x150"
+        }
+    ],
+    "pendentes": [
+        {
+            "id" : "0000599",
+            "titulo": "Reparo em porta",
+            "data": "2023-10-20",
+            "contratante": "Thunderdog",
+            "valor": 450,
+            "contrato": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor a risus at ultrices. Pellentesque ac venenatis sapien. Suspendisse condimentum arcu diam. Maecenas gravida lorem nec justo tempor viverra. Sed mollis aliquam velit vitae blandit. Suspendisse sagittis lacinia massa, sit amet congue libero consequat quis. Fusce vel fermentum nisl.",
+            "imagem": "https://placehold.co/150x150"
+        },{
+            "id" : "0000580",
+            "titulo": "Reparo janela",
+            "contratante": "Pulga",
+            "data": "2023-02-10",
+            "valor": 350,
+            "contrato": "Nam tincidunt purus est, vel hendrerit libero iaculis non. Nullam eu scelerisque nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer turpis erat, mollis molestie felis eu, sodales aliquet dui. Fusce sodales, ante sed posuere eleifend, arcu nunc sagittis massa, vitae cursus erat lacus nec nisl. Suspendisse potenti. Sed at porttitor turpis. Duis eget mi id nisl fermentum pulvinar.",
+            "imagem": "https://placehold.co/150x150"
+        }
+    ],
+    "finalizados": [],
+    "rejeitados": [] 
+}

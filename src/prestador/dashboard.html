@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashbord Prestador - Manotensão </title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<script>
+    var idContrato;
+    function listCardsContratos(contratos) {
+        let html = "";
+        $.each(contratos, function (i, contrato) {
+            html += `<div id="card${contrato.id}" class="card my-1">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="${contrato.imagem}" class="img-thumbnail" alt="Thumbnail de ${contrato.titulo}">
+                        </div>
+                        <div class="col-7">
+                            <h5 class="card-title">${contrato.titulo} #${contrato.id}<br><small>Contratante ${contrato.contratante}</small></h5>                              
+                        </div>
+                        <div class="col-2">
+                            <button id="btn${contrato.id}" type="button" onclick="finalizarContrato(${contrato.id}); " class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#contratosModal" data-bs-id="${contrato.id}" data-bs-title="${contrato.titulo} #${contrato.id}">
+                                <i class="bi bi-check"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+        });
+        return html;
+    }
+
+    function listCardsPendentes(pendentes) {
+        let html = "<div class='row'>";
+        $.each(pendentes, function (i, contrato) {
+            html += `
+            <div class="col-6 my-1">
+                <div id="card${contrato.id}" class="card">
+                    <img src="${contrato.imagem}" class="card-img-top" alt="Thumbnail de ${contrato.titulo}">
+                    <div class="card-body">
+                        <h5 class="card-title">${contrato.titulo}</h5>
+                        <p class="card-text">${contrato.data}</p>
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#pendentesModal" data-bs-card='${JSON.stringify(contrato)}'>Ver detalhes</button>
+                    </div>
+                </div>
+            </div>`;
+        });
+        html += "</div>";
+        return html;
+    }
+
+    function moverParaContratos(id) {
+        var tbPrestador = localStorage.getItem("prestador");
+        tbPrestador = JSON.parse(tbPrestador);
+        const index = tbPrestador.pendentes.findIndex(elemento => elemento.id === id);
+        if (index !== -1) {
+            const contratoPendente = { ...tbPrestador.pendentes[index] };
+            tbPrestador.contratos.push(contratoPendente);
+            tbPrestador.pendentes.splice(index, 1);
+        }
+        localStorage.setItem("prestador", JSON.stringify(tbPrestador));
+    }
+
+    function rejeitarProposta(id) {
+        var tbPrestador = localStorage.getItem("prestador");
+        tbPrestador = JSON.parse(tbPrestador);
+        const index = tbPrestador.contratos.findIndex(elemento => elemento.id === id);
+        if (index !== -1) {
+            const contratoPendente = { ...tbPrestador.pendentes[index] };
+            tbPrestador.rejeitados.push(contratoPendente);
+            tbPrestador.pendentes.splice(index, 1);            
+            localStorage.setItem("prestador", JSON.stringify(tbPrestador));            
+            $(`#card${id}`).appendTo("#contratos-rejeitados");   
+            $(`#btn${id}`).remove();    
+        }
+    }
+
+    function finalizarContrato(id) {
+        var tbPrestador = localStorage.getItem("prestador");
+        tbPrestador = JSON.parse(tbPrestador);
+        const index = tbPrestador.contratos.findIndex(elemento => elemento.id === id);
+
+        console.log(tbPrestador.pendentes)
+        if (index !== -1) {
+            const contratoPendente = { ...tbPrestador.pendentes[index] };
+            tbPrestador.finalizados.push(contratoPendente);
+            tbPrestador.pendentes.splice(index, 1);
+            localStorage.setItem("prestador", JSON.stringify(tbPrestador));            
+            $(`#card${id}`).appendTo("#contratos-finalizados");   
+            $(`#btn${id}`).remove();        
+        }
+    }
+
+    $(document).ready(function () {
+        $.getJSON("../data/prestador.json", function (data) {
+            localStorage.setItem("prestador", JSON.stringify(data))
+        });
+        var indice_selecionado = -1;
+        var tbPrestador = localStorage.getItem("prestador");
+        tbPrestador = JSON.parse(tbPrestador);
+        if (tbPrestador == null)
+            tbPrestador = [];
+
+        $("#container-contratos").append(listCardsContratos(tbPrestador.contratos));
+        $("#container-pendentes").append(listCardsPendentes(tbPrestador.pendentes));
+
+        $("#contratosModal").on('show.bs.modal', event => {
+            const button = event.relatedTarget;
+            const titulo = button.getAttribute('data-bs-title');
+            idContrato = button.getAttribute('data-bs-id');
+            $('#titulo-modal').html(titulo);
+        });
+
+        $("#pendentesModal").on('show.bs.modal', event => {
+            const button = event.relatedTarget;
+            const card = JSON.parse(button.getAttribute('data-bs-card'));
+            idContrato = button.getAttribute('data-bs-id');
+            $('#titulo-pendente').html(card.titulo + " #" + card.id);
+            $('#contratante').html("<strong>Contratante:</strong>" + card.contratante);
+            let detalhes = "";
+            let dataContrato = new Date(card.data);
+            detalhes += `<strong>Data:</strong> ${dataContrato.toLocaleString('pt-BR', { timezone: 'UTC' })}<br>`;
+            detalhes += `<strong>Valor:</strong> ${card.valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}<br>`;
+            detalhes += card.contrato;
+            $('#contrato').html(detalhes);
+        });
+    });
+</script>
+
+<body class="d-flex flex-column min-vh-100">
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../images/header-logo.png" alt="Manotensão" width="30" height="29">
+                    Manotensão
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        <a class="nav-link" aria-current="page" href="#">Perfil</a>
+                        <a class="nav-link" aria-current="page" href="index.html">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="modal" id="contratosModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certerza que quer finalziar o contrato <b id="titulo-modal"></b></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar
+                        finalização</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        onclick="finalizarContrato(idContrato)">Finalizar contrato</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="pendentesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="titulo-pendente" class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 id="contratante"></h6>
+                    <p id="contrato"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="rejeitarContrato(idContrato)">Rejeitar proposta</button>
+                    <button type="button" class="btn btn-success" onclick="moverParaContratos(idContrato)">Aceitar proposta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dashbord Prestador</li>
+        </ol>
+    </nav>
+    <main class="container-fluid pb-5">
+        <h2 class="d-none">Dashbord Prestador</h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <h3>Todos os contratos</h3>
+                    <div id="container-contratos"></div>
+                </div>
+                <div class="col-12 col-lg-8">
+                    <h3>Ofertas em aberto</h3>
+                    <div id="container-pendentes"></div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#contratosFinalizados" aria-expanded="true"
+                        aria-controls="contratosFinalizados">
+                        Contratos finalizados
+                    </button>
+                </h2>
+                <div id="contratosFinalizados" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div id="contratos-finalizados" class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#contratosRecusados" aria-expanded="true" aria-controls="contratosRecusados">
+                        Contratos rejeitados
+                    </button>
+                </h2>
+                <div id="contratosRecusados" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div id="contratos-rejeitados" class="accordion-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-auto border-top wrapper-footer">
+        <div class="container-fluid py-3 my-4">
+            <div class="row">
+                <div class="col">
+                    <span class="mb-3 mb-md-0 text-white">Manotensão© 2023, todos os direitos
+                        reservados.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
