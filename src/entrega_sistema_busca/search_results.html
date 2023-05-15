@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manotensão - Resultados de busca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+ <main class="container"></main>
+    <div class="main-header pb-5">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/header-logo.png" alt="Manotensão" width="30" height="29">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+                        <a class="nav-link" href="#">Ajuda</a>
+                        <a class="nav-link" href="#">Sobre nós</a>
+                        <a class="nav-link" href="#"><button class="btn btn-manotensao">Entrar</button></a>
+                        <a class="nav-link" href="#"><button class="btn btn-manotensao">Cadastro</button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+            <div class="container">
+            <div class="col">
+                <div class="row">
+                    <form class="d-flex my-5" role="search" onsubmit="return newSearch();" >
+                        <input id="search-bar" class="form-control me-2 header-search" type="search"
+                            placeholder="Digite qual tipo de serviço você procura" aria-label="Search">
+                    </form>
+                </div>
+            </div>
+            <div id="card-container"></div>
+            </div>
+
+<script src="jquery-3.6.4.min.js"></script>
+<script type = "text/javascript" src="search_page.js"></script>
+</body>

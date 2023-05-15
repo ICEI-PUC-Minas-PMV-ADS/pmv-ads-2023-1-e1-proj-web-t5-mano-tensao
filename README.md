@@ -50,4 +50,4 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 # Armazenamento da Apresentação
 
-* <a href="presentation/README.md">Apresentação da solução</a>
+* <a href="presentation/apresentação-v1.pdf">Apresentação da solução versão 1</a>

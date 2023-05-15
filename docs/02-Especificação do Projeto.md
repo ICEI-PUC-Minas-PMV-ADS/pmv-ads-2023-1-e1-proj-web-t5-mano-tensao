@@ -475,39 +475,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
    </td>
    <td>Esse seja uma dor de cabeça inexistente em minha vida.
    </td>
-  </tr>
-  <tr>
-   <td>Carlos Gomes
-   </td>
-   <td>compartilhar notícias nas redes sociais em que faço parte
-   </td>
-   <td>poder discutir com os amigos e colegas de trabalhos sobre temas de interesse
-   </td>
-  </tr>
-  <tr>
-   <td>Amanda Alves
-   </td>
-   <td>poder realizar uma pesquisa sobre notícias acerca de um tema específico
-   </td>
-   <td>localizar tópicos específicos e conseguir maior objetividade em algumas leituras
-   </td>
-  </tr>
-  <tr>
-   <td>Carlos Gomes
-   </td>
-   <td>ler notícias tanto no desktop quanto no celular
-   </td>
-   <td>ocupar o tempo quando estou esperando algo (ex: filas de supermercado)
-   </td>
-  </tr>
-  <tr>
-   <td>Amanda Alves
-   </td>
-   <td>quero saber a data e a fonte das notícias lidas
-   </td>
-   <td>confiar no conteúdo passado e na atualidade das notícias que recebo
-   </td>
-  </tr>
+  </tr>  
   <tr>
    <td>Roberto Santos
    </td>
