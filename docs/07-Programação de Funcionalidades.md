@@ -11,5 +11,5 @@ Os sistemas são separados entre a perspectiva de prestador de serviço e usuár
 -Serviço completo / encerrado<br>
 -Qualificação / feedback<br>
 <br>
-<p>Desta forma, o que temos não deixa de ser uma máquina de estados finitos, como utilizado em diferentes tipos de aplicações e / ou até mesmo bancos de dados.</p>
-Querries são feitas em javascript vanilla e ajax, sem uso de quaisquer frameworks ou supersets de javascript.
+<p>Desta forma, o que temos não deixa de ser uma máquina de estados finitos, como utilizado em diferentes tipos de aplicações e / ou até mesmo bancos de dados.</p><br>
+<p>Querries são feitas em javascript vanilla e ajax, sem uso de quaisquer frameworks ou supersets de javascript.</p>
