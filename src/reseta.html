@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <script src="js/constantes.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            localStorage.removeItem('db_usuarios');
+            sessionStorage.removeItem('usuarioCorrente');
+
+            window.location = BASE_URL;
+        });
+    </script>
+</body>
+
+</html>

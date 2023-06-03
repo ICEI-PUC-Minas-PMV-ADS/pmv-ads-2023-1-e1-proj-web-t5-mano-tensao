@@ -1,20 +1,9 @@
-//
-//
-// Disciplina: Trabalho Interdisciplinar - Aplicações Web
-// Professor: Rommel Vieira Carneiro (rommelcarneiro@gmail.com)
-//
-// Código LoginApp utilizado como exemplo para alunos de primeiro período 
-
-
-// Página inicial de Login
-const LOGIN_URL = document.location.hostname;
-
 var db_usuarios = {};
 
 var usuarioCorrente = {};
 
 function initLoginApp() {
-    usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+    var usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
     if (usuarioCorrenteJSON) {
         usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
     }
@@ -23,22 +12,25 @@ function initLoginApp() {
 
     if (!usuariosJSON) {
         console.log('Não há usuários cadastrados no localStorage');
+        db_usuarios = {"usuarios": []};
+        localStorage.setItem('db_usuarios', JSON.stringify (db_usuarios));
     }
-    else {        
+    else {
         db_usuarios = JSON.parse(usuariosJSON);
     }
 };
 
 function entrar(nome_usuario, senha) {
-    var usuarioEncontrado = db_usuarios.usuarios.find(function (usuario) {
-        return nome_usuario === usuario.nome_usuario && senha === usuario.senha;
-    });
+    if (Object.keys(db_usuarios).length !== 0) {
+        var usuarioEncontrado = db_usuarios.usuarios.find(function (usuario) {
+            return nome_usuario === usuario.nome_usuario && senha === usuario.senha;
+        });
 
-    if (usuarioEncontrado) {
-        sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioEncontrado));
-        return usuarioEncontrado.tipo;
+        if (usuarioEncontrado) {
+            sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioEncontrado));
+            return usuarioEncontrado.tipo;
+        }
     }
-
     return false;
 }
 
@@ -46,12 +38,11 @@ function entrar(nome_usuario, senha) {
 function sair() {
     usuarioCorrente = {};
     sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
-    window.location = LOGIN_URL;
+    window.location = BASE_URL;
 }
 
-function adicUsuario(nome, logradouro, numero, bairro, cidade, cep, estado, nome_usuario, senha, telefone, email, recursos_financeiros, tipo) {
+function adicUsuario(nome, logradouro, numero, bairro, cidade, cep, estado, nome_usuario, senha, telefone, email, recursos_financeiros, tipo, especialidades) {
 
-    // Cria um objeto de usuario para o novo usuario 
     let newId = generateUUID();
     let usuario = {
         "id": newId,
@@ -74,11 +65,64 @@ function adicUsuario(nome, logradouro, numero, bairro, cidade, cep, estado, nome
         "tipo": tipo
     };
 
+    if (tipo == "P") {
+        usuario.especialidades = especialidades;
+    }    
+
     db_usuarios.usuarios.push(usuario);
     sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuario));
     localStorage.setItem('db_usuarios', JSON.stringify(db_usuarios));
 
     return tipo;
+}
+
+function editarUsuario(id, novoNome, novoLogradouro, novoNumero, novoBairro, novaCidade, novoCep, novoEstado, novoNomeUsuario, novaSenha, novoTelefone, novoEmail, novosRecursosFinanceiros, novaTipo, novasEspecialidades) {
+    var usuario = db_usuarios.usuarios.find(function (usuario) {
+        return usuario.id === id;
+    });
+
+    if (usuario) {
+        usuario.nome = novoNome;
+        usuario.endereco.logradouro = novoLogradouro;
+        usuario.endereco.numero = novoNumero;
+        usuario.endereco.bairro = novoBairro;
+        usuario.endereco.cidade = novaCidade;
+        usuario.endereco.cep = novoCep;
+        usuario.endereco.estado = novoEstado;
+        usuario.nome_usuario = novoNomeUsuario;
+        usuario.senha = novaSenha;
+        usuario.contato.telefone = novoTelefone;
+        usuario.contato.email = novoEmail;
+        usuario.recursos_financeiros = novosRecursosFinanceiros;
+        usuario.tipo = novaTipo;
+
+        if (novaTipo === "P") {
+            usuario.especialidades = novasEspecialidades;
+        }
+
+        localStorage.setItem('db_usuarios', JSON.stringify(db_usuarios));
+
+        return true;
+    }
+
+    return false;
+}
+
+
+function delUsuario(id) {
+    var index = db_usuarios.usuarios.findIndex(function (usuario) {
+        return usuario.id === id;
+    });
+
+    if (index !== -1) {
+        db_usuarios.usuarios.splice(index, 1);
+        usuarioCorrente = {};
+        sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+        localStorage.setItem('db_usuarios', JSON.stringify(db_usuarios));
+        return true;
+    }
+
+    return false;
 }
 
 function generateUUID() { // Public Domain/MIT
@@ -97,5 +141,4 @@ function generateUUID() { // Public Domain/MIT
     });
 }
 
-// Inicializa as estruturas utilizadas pelo LoginApp
 initLoginApp();
