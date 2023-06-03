@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro - Manotensão </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/header-logo.png" alt="Manotensão" width="30" height="29">
+                    Manotensão
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h1>Cadastro</h1>
+                <form id="cadastro-form" class="needs-validation m-3" novalidate onsubmit="adicUsuario(this)">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um nome válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nome_usuario" class="form-label">Usuário</label>
+                        <input type="text" class="form-control" id="nome_usuario" name="nome_usuario" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um usuário válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira uma senha.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirma-senha" class="form-label">Confirme a senha</label>
+                        <input type="password" class="form-control" id="confirma-senha" name="confirma-senha" required>
+                        <div class="invalid-feedback">
+                            Por favor, a mesma senha.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="logradouro" class="form-label">Logradouro</label>
+                        <input type="text" class="form-control" id="logradouro" name="endereco.logradouro" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um logradouro válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="numero" class="form-label">Número</label>
+                        <input type="text" class="form-control" id="numero" name="endereco.numero" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um número válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bairro" class="form-label">Bairro</label>
+                        <input type="text" class="form-control" id="bairro" name="endereco.bairro" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um bairro válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="endereco.cidade" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira uma cidade válida.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="cep" name="endereco.cep" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um CEP válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <input type="text" class="form-control" id="estado" name="endereco.estado" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um estado válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="contato.telefone" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um telefone válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="contato.email" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um email válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recursos_financeiros" class="form-label">Recursos Financeiros (de 1 a 5)</label>
+                        <input type="number" class="form-control" id="recursos_financeiros" name="recursos_financeiros"
+                            min="1" max="5" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um valor válido entre 1 e 5.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo de conta</label>
+                        <select class="form-select" id="tipo" name="tipo" required>
+                            <option value="" selected disabled hidden>Selecione</option>
+                            <option value="P">Prestador</option>
+                            <option value="C">Cliente</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Por favor, selecione um tipo válido.
+                        </div>
+                    </div>
+                    <div class="m-3 text-center">
+                        <button type="submit" class="btn btn-secondary">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-auto border-top wrapper-footer">
+        <div class="container-fluid py-3 my-4">
+            <div class="row">
+                <div class="col">
+                    <span class="mb-3 mb-md-0 text-white">Manotensão© 2023, todos os direitos
+                        reservados.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="js/usuario.js"></script>
+    <script>
+        // Habilitar validação do Bootstrap no formulário
+        (function () {
+            'use strict';
+            // Seletor para o formulário
+            var forms = document.querySelectorAll('.needs-validation');
+            // Loop através dos formulários e previne o envio se algum campo for inválido
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        } else {
+                            // Verifica se as senhas correspondem
+                            var senha = form.querySelector('input[name="senha"]').value;
+                            var confirmaSenha = form.querySelector('input[name="confirma-senha"]').value;
+
+                            if (senha !== confirmaSenha) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                                form.querySelector('input[name="confirma-senha"]').setCustomValidity('As senhas não correspondem.');
+                            }
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+
+        function processaAdicCadastro(event) {
+            event.preventDefault();
+            var nome = document.getElementById('nome').value;
+            var nome_usuario = document.getElementById('nome_usuario').value;
+            var senha = document.getElementById('senha').value;
+            var logradouro = document.getElementById('logradouro').value;
+            var numero = document.getElementById('numero').value;
+            var bairro = document.getElementById('bairro').value;
+            var cidade = document.getElementById('cidade').value;
+            var cep = document.getElementById('cep').value;
+            var estado = document.getElementById('estado').value;            
+            var telefone = document.getElementById('telefone').value;                 
+            var email = document.getElementById('email').value;
+            var recursos_financeiros = document.getElementById('recursos_financeiros').value;
+            var tipo = document.getElementById('tipo').value;
+            resultado_cadastro = adicUsuario(nome, logradouro, numero, bairro, cidade, cep, estado, nome_usuario, senha, telefone, email, recursos_financeiros, tipo);
+            if (resultado_cadastro) {
+                if (resultado_cadastro == "P") {
+                    window.location.href = "prestador/dashboard.html";
+                }
+                else {
+                    window.location.href = "cliente/dashboard.html";
+                }
+            }
+            else {
+                document.getElementById('msg-login').innerHTML = '<div class="alert alert-danger" role="alert">Usuário ou senha incorretos</div>';
+            }
+        }
+        document.getElementById('cadastro-form').addEventListener('submit', processaAdicCadastro);
+    </script>
+</body>
+
+</html>
