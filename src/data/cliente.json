@@ -1,0 +1,34 @@
+{
+    "customers" :[
+        {
+            "id": "001",
+            "username": "patinhas",
+            "name": "Tio Patinhas",
+            "Logradouro": "Rua Quinze de Novembro",
+            "Numero": "200",
+            "Bairro": "Centro",
+            "Cidade": "Belo Horizonte",
+            "CEP": "36200-740",
+            "Estado": "Mina Gerais",
+            "Telefone": "(31)99999-9999",
+            "email": "patinhas@patopolis.com.pt",
+            "funanceiro": "5",
+            "past_contracts": [
+                {
+                    "contract_number": "001",
+                    "prestador": "Patacôncio",
+                    "Data": "16/09/2023",
+                    "description": "Reforma em garagem de caixa forte, necessário uso de concreto forte. Importante frisar a necessidade de profissional discreto e assertivo!",
+                    "qualificacao": "3"
+                },
+                {
+                    "contract_number": "002",
+                    "prestador": "Donald",
+                    "Data": "21/11/2023",
+                    "description": "Criação de poço com profundidade a se definir.",
+                    "qualificacao": "2"
+                }
+                ]
+        }
+    ]
+}
