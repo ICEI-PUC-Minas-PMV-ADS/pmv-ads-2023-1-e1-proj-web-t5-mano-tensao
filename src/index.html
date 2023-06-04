@@ -40,8 +40,8 @@
             <h1 class="d-none">Manotensão</h1>
             <div class="col">
                 <div class="row">
-                    <form class="d-flex my-5" role="search">
-                        <input class="form-control me-2 header-search" type="search"
+                    <form class="d-flex my-5" role="search" onsubmit="return goToSearchResults();">
+                        <input id="search-bar" class="form-control me-2 header-search" type="search"
                             placeholder="Digite qual tipo de serviço você procura" aria-label="Search">
                     </form>
                 </div>
@@ -99,6 +99,12 @@
     <script>
         console.log(usuarioCorrente);
         console.log(db_usuarios);        
+    </script>
+    <script>
+        function goToSearchResults(){
+            window.location.assign("search_results.html?search_value="+document.getElementById("search-bar").value);
+            return false;
+        }
     </script>
 </body>
 

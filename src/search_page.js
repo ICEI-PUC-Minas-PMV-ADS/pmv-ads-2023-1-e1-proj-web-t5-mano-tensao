@@ -1,59 +1,11 @@
-let initial_json =  [
-                {
-                "user": "João do Manjericão",
-                "description": "Cuido da sua planta, ninguém se espanta. Podas, cortes, canteiros, grama, ervas daninhas. Repetindo: Podas, cortes, canteiros, grama, ervas daninhas. Novamente: Podas, cortes, canteiros, grama, ervas daninhas. Podas, cortes, canteiros, grama, ervas daninhas. Podas, cortes, canteiros, grama, ervas daninhas. Podas, cortes, canteiros, grama, ervas daninhas.",
-                "tags": ["jardinagem", "plantas", "canteiros", "meutag"],
-                "user_id": 1,
-                "user_avatar": "images/avatar_01.png",
-                "user_reputation" : 5,
-                "regions": ["são paulo", "Zona Leste", "ZL", "jardins"]
-                },
-                {
-                "user": "Super Mario",
-                "description": "Eu sou um cara legal que conserta seu problema de hidráulica na real. Seja em São Paulo, no Campo Belo, seja no Reino do Cogumelo, nenhum vazamento existe, nada de secar com o pano. Contrate nosso serviço e só eu entro pelo cano!",
-                "tags": ["hidraulica", "hidráulica", "tubulação", "tubos", "conexões", "tigre", "amanco"],
-                "user_id": 2,
-                "user_avatar": "images/avatar_02.jpg",
-                "user_reputation" : 2,
-                "regions": ["são paulo", "lapa", "belo horizonte", "centro"]
-                },
-                {
-                "user": "Usuário X",
-                "description": "Marcenaria sem feitiçaria! Mando ver na sua porta, janela, madeira, cozinha personalizada.",
-                "tags": ["marcenaria", "madeira", "armários", "portas", "janelas"],
-                "user_id": 3,
-                "user_avatar": "images/avatar_03.png",
-                "user_reputation" : 3,
-                "regions": ["são paulo", "Vila Inah", "zona sul", "bosque central"]
-                },
-                {
-                "user": "Paisagismo Manoela",
-                "description": "Criação de projetos paisagísticos para jardins de todos os tamanhos. Seleção de plantas e elementos decorativos para deixar seu jardim ainda mais bonito.",
-                "tags": ["paisagismo", "jardim", "plantas", "decoração", "jardinagem"],
-                "user_id": 4,
-                "user_avatar": "images/avatar_04.jpg",
-                "user_reputation" : 3,
-                "regions": ["são paulo", "santo andré", "são bernardo"]
-                },
-                {
-                "user": "Mar azul piscinas",
-                "description": "Instalação de piscinas de fibra ou alvenaria. Criação de projeto de paisagismo e iluminação para valorizar sua área de lazer.",
-                "tags": ["piscina", "instalação", "paisagismo", "iluminação"],
-                "user_id": 4,
-                "user_avatar": "images/avatar_05.jpg",
-                "user_reputation" : 3,
-                "regions": ["são paulo", "santo andré", "são bernardo"]
-                },
-                {
-                "user": "Pintura sem Frescura Ltda.",
-                "description": "Pintura de paredes, tetos e portas. Utilização de técnicas de pintura decorativa para deixar o ambiente ainda mais aconchegante.",
-                "tags": ["pintura", "interiores", "decoração"],
-                "user_id": 4,
-                "user_avatar": "images/avatar_06.png",
-                "user_reputation" : 3,
-                "regions": ["são paulo", "santo andré", "são bernardo"]
-                }
-            ]
+$(document).ready(function () {
+        $.getJSON("data/prestadores.json", function (data) {
+            localStorage.setItem("prestadores", JSON.stringify(data))
+        });
+});
+
+let initial_json = JSON.parse(localStorage.getItem("prestadores"));
+initial_json = initial_json["users"];
 
 search_results_array = []
 
@@ -132,7 +84,6 @@ let performSearch = (search_string) =>{
                     search_results_array.push(initial_json[j]);
                 }
             }
-
         }
     }
 
