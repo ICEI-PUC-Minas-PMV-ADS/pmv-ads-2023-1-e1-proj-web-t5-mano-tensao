@@ -6,7 +6,9 @@ $(document).ready(function () {
 
 let initial_json = JSON.parse(localStorage.getItem("cliente"));
 //need to implement loop to select the customer related to the currently logged user.
+full_json = initial_json;
 initial_json = initial_json["customers"][0]["past_contracts"];
+user_details = full_json["customers"][0];
 console.log(initial_json);
 
 let card_container;
@@ -49,9 +51,21 @@ let CreatePastCard = (feed) => {
 
 let populateDetalhes = (detalhes) => {
    let contents = document.createElement("div");
-   contents.innerHTML = "<h2>BLA!</h2>";
+   contents.innerHTML = "<h3>Sua reputação:</h3><p>" + detalhes.reputation + "</p>";
+
+   let contents2 = document.createElement("div");
+   contents2.innerHTML = "<p>Com base em " + detalhes.past_contracts.length + "contratos executados até o momento.</p>";
+
+   let contents3 = document.createElement("div");
+   contents3.innerHTML = "<h4>Resumo dos dados do seu usuário:</h4><p>Nome: " + detalhes.name+ "</p><p>Endereço: " + detalhes.Logradouro+ ", " + detalhes.Numero+ "</p><p>" + detalhes.Bairro + ", " + detalhes.Cidade + ".</p><p> Telefone: " +  detalhes.Telefone + "</p.>";
+
+   let contents4 = document.createElement("div");
+   contents4.innerHTML = "<p><a href='perfil.html'>Clique aqui para mais detalhes ou editar seu perfil.</a>";
 
    details_div.appendChild(contents);
+   details_div.appendChild(contents2);
+   details_div.appendChild(contents3);
+   details_div.appendChild(contents4);
 
 }
 
@@ -70,5 +84,5 @@ let initListOfPastContracts = () => {
 };
 
 initListOfPastContracts();
-populateDetalhes();
+populateDetalhes(user_details);
 

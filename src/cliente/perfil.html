@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perfil - Manotensão </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../images/header-logo.png" alt="Manotensão" width="30" height="29">
+                    Manotensão
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
+                        <a class="nav-link" aria-current="page" href="#" onclick="sair()">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h1>Perfil de </h1>
+                <input type="hidden" id="id" name="id" required>
+                <form id="cadastro-form" class="needs-validation m-3" novalidate onsubmit="adicUsuario(this)">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um nome válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nome_usuario" class="form-label">Usuário</label>
+                        <input type="text" class="form-control" id="nome_usuario" name="nome_usuario" disabled required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um usuário válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira uma senha.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirma-senha" class="form-label">Confirme a senha</label>
+                        <input type="password" class="form-control" id="confirma-senha" name="confirma-senha" required>
+                        <div class="invalid-feedback">
+                            Por favor, a mesma senha.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="logradouro" class="form-label">Logradouro</label>
+                        <input type="text" class="form-control" id="logradouro" name="endereco.logradouro" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um logradouro válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="numero" class="form-label">Número</label>
+                        <input type="text" class="form-control" id="numero" name="endereco.numero" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um número válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bairro" class="form-label">Bairro</label>
+                        <input type="text" class="form-control" id="bairro" name="endereco.bairro" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um bairro válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="endereco.cidade" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira uma cidade válida.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="cep" name="endereco.cep" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um CEP válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <input type="text" class="form-control" id="estado" name="endereco.estado" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um estado válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="contato.telefone" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um telefone válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="contato.email" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um email válido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recursos_financeiros">Recursos Financeiros:</label>
+                        <input type="range" class="form-range" id="recursos_financeiros" name="recursos_financeiros"
+                            min="1" max="5" required>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Poucos Recursos</span>
+                            <span class="text-muted">Muitos Recursos</span>
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor, insira um valor válido entre 1 e 5.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo de conta</label>
+                        <select class="form-select" id="tipo" name="tipo" disabled required>
+                            <option value="" selected disabled hidden>Selecione</option>
+                            <option value="P">Prestador</option>
+                            <option value="C">Cliente</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Por favor, selecione um tipo válido.
+                        </div>
+                    </div>
+                    <div class="mb-3" id="especialidades">
+                        <label class="form-label">Especialidades</label>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="limpeza-residencial"
+                                    name="especialidades[]" value="Limpeza residencial">
+                                <label class="form-check-label" for="limpeza-residencial">Limpeza residencial</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="limpeza-comercial"
+                                    name="especialidades[]" value="Limpeza comercial">
+                                <label class="form-check-label" for="limpeza-comercial">Limpeza comercial</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="limpeza-industrial"
+                                    name="especialidades[]" value="Limpeza industrial">
+                                <label class="form-check-label" for="limpeza-industrial">Limpeza industrial</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="limpeza-pós-obra"
+                                    name="especialidades[]" value="Limpeza pós-obra">
+                                <label class="form-check-label" for="limpeza-pós-obra">Limpeza pós-obra</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="manutenção-de-jardins"
+                                    name="especialidades[]" value="Manutenção de jardins">
+                                <label class="form-check-label" for="manutenção-de-jardins">Manutenção de
+                                    jardins</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="projeto-paisagístico"
+                                    name="especialidades[]" value="Projeto paisagístico">
+                                <label class="form-check-label" for="projeto-paisagístico">Projeto paisagístico</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="podas-de-árvores"
+                                    name="especialidades[]" value="Podas de árvores">
+                                <label class="form-check-label" for="podas-de-árvores">Podas de árvores</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="corte-de-grama"
+                                    name="especialidades[]" value="Corte de grama">
+                                <label class="form-check-label" for="corte-de-grama">Corte de grama</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="encanamento" name="especialidades[]"
+                                    value="Encanamento">
+                                <label class="form-check-label" for="encanamento">Encanamento</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="eletricidade"
+                                    name="especialidades[]" value="Eletricidade">
+                                <label class="form-check-label" for="eletricidade">Eletricidade</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="pintura" name="especialidades[]"
+                                    value="Pintura">
+                                <label class="form-check-label" for="pintura">Pintura</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="marcenaria" name="especialidades[]"
+                                    value="Marcenaria">
+                                <label class="form-check-label" for="marcenaria">Marcenaria</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="vigilância" name="especialidades[]"
+                                    value="Vigilância">
+                                <label class="form-check-label" for="vigilância">Vigilância</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="monitoramento-de-câmeras"
+                                    name="especialidades[]" value="Monitoramento de câmeras">
+                                <label class="form-check-label" for="monitoramento-de-câmeras">Monitoramento de
+                                    câmeras</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="portaria" name="especialidades[]"
+                                    value="Portaria">
+                                <label class="form-check-label" for="portaria">Portaria</label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" id="controle-de-acesso"
+                                    name="especialidades[]" value="Controle de acesso">
+                                <label class="form-check-label" for="controle-de-acesso">Controle de acesso</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-3 text-center">
+                        <button type="submit" class="btn btn-secondary">Atualizar</button>
+                        <button type="button" class="btn btn-danger" onclick="deletarPerfil(usuarioCorrente.id)">Deletar
+                            Perfil</button>
+                    </div>
+                    <div id="msg-error">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-auto border-top wrapper-footer">
+        <div class="container-fluid py-3 my-4">
+            <div class="row">
+                <div class="col">
+                    <span class="mb-3 mb-md-0 text-white">Manotensão© 2023, todos os direitos
+                        reservados.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="../js/constantes.js"></script>
+    <script src="../js/usuario.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('id').value = usuarioCorrente.id;
+            document.getElementById('nome').value = usuarioCorrente.nome;
+            document.getElementById('nome_usuario').value = usuarioCorrente.nome_usuario;
+            document.getElementById('senha').value = usuarioCorrente.senha;
+            document.getElementById('confirma-senha').value = usuarioCorrente.senha;
+            document.getElementById('logradouro').value = usuarioCorrente.endereco.logradouro;
+            document.getElementById('numero').value = usuarioCorrente.endereco.numero;
+            document.getElementById('bairro').value = usuarioCorrente.endereco.bairro;
+            document.getElementById('cidade').value = usuarioCorrente.endereco.cidade;
+            document.getElementById('cep').value = usuarioCorrente.endereco.cep;
+            document.getElementById('estado').value = usuarioCorrente.endereco.estado;
+            document.getElementById('telefone').value = usuarioCorrente.contato.telefone;
+            document.getElementById('email').value = usuarioCorrente.contato.email;
+            document.getElementById('recursos_financeiros').value = usuarioCorrente.recursos_financeiros;
+            document.getElementById('tipo').value = usuarioCorrente.tipo;
+
+            // Definir as especialidades
+            var especialidades = usuarioCorrente.especialidades;
+            for (var i = 0; i < especialidades.length; i++) {
+                var checkboxId = especialidades[i].toLowerCase().replace(/ /g, '-');
+                document.getElementById(checkboxId).checked = true;
+            }
+        });
+
+        function deletarPerfil(id) {
+            if (delUsuario(id))
+                window.location = BASE_URL;
+            else
+                document.getElementById('msg-error').innerHTML = '<div class="alert alert-danger" role="alert">Não foi possível apagar o usuário</div>';
+        }
+    </script>
+</body>
+
+</html>
