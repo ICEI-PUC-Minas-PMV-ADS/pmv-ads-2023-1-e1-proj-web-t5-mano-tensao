@@ -17,7 +17,12 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
+
+<script src="../js/constantes.js"></script>
+<script src="../js/usuario.js"></script>
+<script src="../js/prestador.js"></script>
 <script>
+    console.log(usuarioCorrente);
     var idContrato;
     function listCardsContratos(contratos) {
         let html = "";
@@ -81,10 +86,10 @@
         if (index !== -1) {
             const contratoPendente = { ...tbPrestador.pendentes[index] };
             tbPrestador.rejeitados.push(contratoPendente);
-            tbPrestador.pendentes.splice(index, 1);            
-            localStorage.setItem("prestador", JSON.stringify(tbPrestador));            
-            $(`#card${id}`).appendTo("#contratos-rejeitados");   
-            $(`#btn${id}`).remove();    
+            tbPrestador.pendentes.splice(index, 1);
+            localStorage.setItem("prestador", JSON.stringify(tbPrestador));
+            $(`#card${id}`).appendTo("#contratos-rejeitados");
+            $(`#btn${id}`).remove();
         }
     }
 
@@ -98,9 +103,82 @@
             const contratoPendente = { ...tbPrestador.pendentes[index] };
             tbPrestador.finalizados.push(contratoPendente);
             tbPrestador.pendentes.splice(index, 1);
-            localStorage.setItem("prestador", JSON.stringify(tbPrestador));            
-            $(`#card${id}`).appendTo("#contratos-finalizados");   
-            $(`#btn${id}`).remove();        
+            localStorage.setItem("prestador", JSON.stringify(tbPrestador));
+            $(`#card${id}`).appendTo("#contratos-finalizados");
+            $(`#btn${id}`).remove();
+        }
+    }
+
+    function exibirMensagem(texto, tipo) {
+        console.log(texto);
+        var toast = $('#toast-mensagens');
+        var toastBody = toast.find('.toast-body');
+
+        // Limpa todas as classes de cor existentes no toast
+        toast.removeClass('text-bg-primary text-bg-secondary text-bg-success text-bg-danger text-bg-warning text-bg-info');
+
+        // Define a nova classe de cor com base no tipo fornecido
+        switch (tipo) {
+            case 'primary':
+                toast.addClass('text-bg-primary');
+                break;
+            case 'secondary':
+                toast.addClass('text-bg-secondary');
+                break;
+            case 'success':
+                toast.addClass('text-bg-success');
+                break;
+            case 'danger':
+                toast.addClass('text-bg-danger');
+                break;
+            case 'warning':
+                toast.addClass('text-bg-warning');
+                break;
+            case 'info':
+                toast.addClass('text-bg-info');
+                break;
+            default:
+                // Caso nenhum tipo válido seja fornecido, usa a classe padrão
+                toast.addClass('text-bg-primary');
+                break;
+        }
+
+        toastBody.text(texto);
+        toast.toast('show');
+    }
+    //Perfis
+
+    function montaPerfis() {
+        $("#perfis-criados").html("");
+        $.each(usuarioCorrente.perfis_cliente, function (i, perfil) {
+            let perfilHtml = '<div class="card mb-3">' +
+                '<div class="card-body">' +
+                '<h5 class="card-title">' + perfil.nome_perfil + '</h5>' +
+                '<p class="card-text">' +
+                '<strong>Cidade:</strong> ' + perfil.cidade.nome + '<br>' +
+                '<strong>Bairros:</strong> ' + perfil.cidade.bairros.join(", ") + '<br>' +
+                '<strong>Recursos Financeiros:</strong> ' + perfil.recursos_financeiros +
+                '</p>' +
+                '<button type="button" class="btn btn-primary" onclick="verDetalhes(' + i + ')">Ver Detalhes</button>' +
+                '<button type="button" class="btn btn-danger" onclick="excluirPerfil(' + i + ')">Excluir</button>' +
+                '</div>' +
+                '</div>';
+
+            $("#perfis-criados").append(perfilHtml);
+        });
+    }
+
+    function criaPerfil() {
+        let nomePerfil = $("input[name='nome_perfil']").val();
+        let recursosFinanceiros = $("input[name='recursos_financeiros']").val();
+        let nomeCidade = $("input[name='nome_cidade']").val();
+        let bairros = $("input[name='bairros']").val();
+        if (adicPerfil(usuarioCorrente.id, nomePerfil, nomeCidade, bairros, recursosFinanceiros)) {
+            montaPerfis();
+            exibirMensagem("Sucesso ao criar novo perfil de cliente", "success");
+        }
+        else {
+            exibirMensagem("Erro ao criar perfil de cliente", "danger");
         }
     }
 
@@ -137,11 +215,13 @@
             detalhes += card.contrato;
             $('#contrato').html(detalhes);
         });
+
+        montaPerfis();
     });
 </script>
 
 <body class="d-flex flex-column min-vh-100">
-    <div>
+    <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -161,7 +241,7 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </header>
     <div class="modal" id="contratosModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -192,8 +272,50 @@
                     <p id="contrato"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="rejeitarContrato(idContrato)">Rejeitar proposta</button>
-                    <button type="button" class="btn btn-success" onclick="moverParaContratos(idContrato)">Aceitar proposta</button>
+                    <button type="button" class="btn btn-danger" onclick="rejeitarContrato(idContrato)">Rejeitar
+                        proposta</button>
+                    <button type="button" class="btn btn-success" onclick="moverParaContratos(idContrato)">Aceitar
+                        proposta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="perfisModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulário de Perfis de Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nome_perfil">Nome do Perfil:</label>
+                            <input type="text" class="form-control" name="nome_perfil" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recursos_financeiros">Recursos Financeiros:</label>
+                            <input type="range" class="form-range" id="recursos_financeiros" name="recursos_financeiros"
+                                min="1" max="5" required>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Poucos Recursos</span>
+                                <span class="text-muted">Muitos Recursos</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nome_cidade">Nome da Cidade:</label>
+                            <input type="text" class="form-control" name="nome_cidade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bairros">Bairros (separados por vírgula):</label>
+                            <input type="text" class="form-control" name="bairros" required>
+                        </div>
+                        <div class="text-center m-3">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#perfisModal" onclick="criaPerfil()">Criar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -217,7 +339,23 @@
                 </div>
             </div>
         </div>
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionPerfisCriados">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#perfisCriados" aria-expanded="true" aria-controls="perfisCriados">
+                        Perfis de Contratantes
+                    </button>
+                </h2>
+                <div id="perfisCriados" class="accordion-collapse collapse" data-bs-parent="#accordionPerfisCriados">
+                    <div class="m-3"><button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#perfisModal">Criar Perfil</button></div>
+                    <div id="perfis-criados" class="accordion-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion" id="accordionContratosFinalizados">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -226,11 +364,14 @@
                         Contratos finalizados
                     </button>
                 </h2>
-                <div id="contratosFinalizados" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="contratosFinalizados" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionContratosFinalizados">
                     <div id="contratos-finalizados" class="accordion-body">
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="accordion" id="accordionContratosRecusados">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -238,7 +379,8 @@
                         Contratos rejeitados
                     </button>
                 </h2>
-                <div id="contratosRecusados" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="contratosRecusados" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionContratosRecusados">
                     <div id="contratos-rejeitados" class="accordion-body">
                     </div>
                 </div>
@@ -255,14 +397,19 @@
             </div>
         </div>
     </footer>
+
+    <div id="toast-mensagens" class="toast align-items-center text-bg-primary border-0" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div id="mensagens" class="toast-body">
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>      
-    <script src="../js/constantes.js"></script>  
-    <script src="../js/usuario.js"></script>
-    <script>
-        console.log(usuarioCorrente);
-    </script>
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
