@@ -62,11 +62,14 @@ function adicUsuario(nome, logradouro, numero, bairro, cidade, cep, estado, nome
             "email": email
         },
         "recursos_financeiros": recursos_financeiros,
-        "tipo": tipo
+        "tipo": tipo,
+        "reputacao": []
     };
 
     if (tipo == "P") {
         usuario.especialidades = especialidades;
+        usuario.contratos = [];
+        usuario.perfis_cliente = [];
     }    
 
     db_usuarios.usuarios.push(usuario);
@@ -76,39 +79,6 @@ function adicUsuario(nome, logradouro, numero, bairro, cidade, cep, estado, nome
     return tipo;
 }
 
-function editarUsuario(id, novoNome, novoLogradouro, novoNumero, novoBairro, novaCidade, novoCep, novoEstado, novoNomeUsuario, novaSenha, novoTelefone, novoEmail, novosRecursosFinanceiros, novaTipo, novasEspecialidades) {
-    var usuario = db_usuarios.usuarios.find(function (usuario) {
-        return usuario.id === id;
-    });
-
-    if (usuario) {
-        usuario.nome = novoNome;
-        usuario.endereco.logradouro = novoLogradouro;
-        usuario.endereco.numero = novoNumero;
-        usuario.endereco.bairro = novoBairro;
-        usuario.endereco.cidade = novaCidade;
-        usuario.endereco.cep = novoCep;
-        usuario.endereco.estado = novoEstado;
-        usuario.nome_usuario = novoNomeUsuario;
-        usuario.senha = novaSenha;
-        usuario.contato.telefone = novoTelefone;
-        usuario.contato.email = novoEmail;
-        usuario.recursos_financeiros = novosRecursosFinanceiros;
-        usuario.tipo = novaTipo;
-
-        if (novaTipo === "P") {
-            usuario.especialidades = novasEspecialidades;
-        }
-
-        localStorage.setItem('db_usuarios', JSON.stringify(db_usuarios));
-
-        return true;
-    }
-
-    return false;
-}
-
-
 function delUsuario(id) {
     var index = db_usuarios.usuarios.findIndex(function (usuario) {
         return usuario.id === id;
@@ -117,7 +87,7 @@ function delUsuario(id) {
     if (index !== -1) {
         db_usuarios.usuarios.splice(index, 1);
         usuarioCorrente = {};
-        sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+        sessionStorage.removeItem('usuarioCorrente');
         localStorage.setItem('db_usuarios', JSON.stringify(db_usuarios));
         return true;
     }

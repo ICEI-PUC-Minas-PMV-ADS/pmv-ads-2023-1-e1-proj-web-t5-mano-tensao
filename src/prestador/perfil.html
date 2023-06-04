@@ -28,6 +28,12 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
+                        <a class="nav-link" aria-current="page" href="#" onclick="sair()">Sair</a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -122,9 +128,13 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="recursos_financeiros" class="form-label">Recursos Financeiros (de 1 a 5)</label>
-                        <input type="number" class="form-control" id="recursos_financeiros" name="recursos_financeiros"
+                        <label for="recursos_financeiros">Recursos Financeiros:</label>
+                        <input type="range" class="form-range" id="recursos_financeiros" name="recursos_financeiros"
                             min="1" max="5" required>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Poucos Recursos</span>
+                            <span class="text-muted">Muitos Recursos</span>
+                        </div>
                         <div class="invalid-feedback">
                             Por favor, insira um valor válido entre 1 e 5.
                         </div>
@@ -170,7 +180,8 @@
                             <div class="form-check col-6">
                                 <input class="form-check-input" type="checkbox" id="manutenção-de-jardins"
                                     name="especialidades[]" value="Manutenção de jardins">
-                                <label class="form-check-label" for="manutenção-de-jardins">Manutenção de jardins</label>
+                                <label class="form-check-label" for="manutenção-de-jardins">Manutenção de
+                                    jardins</label>
                             </div>
                             <div class="form-check col-6">
                                 <input class="form-check-input" type="checkbox" id="projeto-paisagístico"
@@ -180,8 +191,8 @@
                         </div>
                         <div class="row">
                             <div class="form-check col-6">
-                                <input class="form-check-input" type="checkbox" id="podas-de-árvores" name="especialidades[]"
-                                    value="Podas de árvores">
+                                <input class="form-check-input" type="checkbox" id="podas-de-árvores"
+                                    name="especialidades[]" value="Podas de árvores">
                                 <label class="form-check-label" for="podas-de-árvores">Podas de árvores</label>
                             </div>
                             <div class="form-check col-6">
@@ -241,8 +252,9 @@
                         </div>
                     </div>
                     <div class="m-3 text-center">
-                        <button type="submit" class="btn btn-secondary">Cadastrar</button>
-                        <button type="button" class="btn btn-danger" onclick="deletarPerfil(usuarioCorrente.id)">Deletar Perfil</button>
+                        <button type="submit" class="btn btn-secondary">Atualizar</button>
+                        <button type="button" class="btn btn-danger" onclick="deletarPerfil(usuarioCorrente.id)">Deletar
+                            Perfil</button>
                     </div>
                     <div id="msg-error">
 
@@ -292,8 +304,8 @@
             }
         });
 
-        function deletarPerfil(id){
-            if(delUsuario(id))
+        function deletarPerfil(id) {
+            if (delUsuario(id))
                 window.location = BASE_URL;
             else
                 document.getElementById('msg-error').innerHTML = '<div class="alert alert-danger" role="alert">Não foi possível apagar o usuário</div>';
